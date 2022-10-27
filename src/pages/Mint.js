@@ -67,10 +67,10 @@ export default function Mint() {
     initiateClient(netId);
   }, [netId]);
   useEffect(async () => {
-    if (client && coinbase && netId) {
+    if (client && coinbase && netId && nftScience) {
       try {
         const resultsSubmissions = await getSubmissions(coinbase);
-        const ownedNfts = await getNftsFrom(coinbase,netId);
+        const ownedNfts = await getNftsFrom(coinbase,nftScience.address,netId);
         if (ownedNfts.data.accounts[0]?.ERC1155balances) {
           const erc1155Tokens = ownedNfts.data.accounts[0].ERC1155balances;
           console.log(erc1155Tokens)
@@ -85,7 +85,7 @@ export default function Mint() {
         //setLoadingMyNFTs(false);
       }
     }
-  }, [client, coinbase, netId]);
+  }, [client, coinbase, netId,nftScience]);
 
 
 

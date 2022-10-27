@@ -26,12 +26,12 @@ function useGraphClient() {
     setClient(newClient);
     setSciDaoClient(newSciDaoClient);
   }
-  const getNftsFrom = async (address, netId) => {
+  const getNftsFrom = async (address,contractAddress, netId) => {
     let tokensQuery = `
       query {
         accounts(where: {id: "${address.toLowerCase()}"}) {
           id
-          ERC1155balances{
+          ERC1155balances(where: {contract: "${contractAddress.toLowerCase()}"}){
             id
             value
             token {

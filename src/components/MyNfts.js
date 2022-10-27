@@ -64,7 +64,7 @@ export default function MyNfts (props) {
                 <CardBody pad="small"><Image alignSelf="center" src={uriImage} width="150px"/></CardBody>
                 <CardFooter pad={{horizontal: "small"}} background="light-2" align="center" alignContent="center">
                   <Anchor href={uriMetadata} target="_blank">Info</Anchor>
-                  <Anchor href={`https://rinkeby.rarible.com/token/${props.nftScience.address}:${obj.id}`} target="_blank">Marketplace</Anchor>
+                  <Anchor href={`https://testnet.rarible.com/collection/polygon/${props.nftScience.address}:${obj.id}`} target="_blank">Marketplace</Anchor>
                 </CardFooter>
               </Card>
             </Box>
