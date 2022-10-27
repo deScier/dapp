@@ -56,16 +56,18 @@ export default function MyNfts (props) {
           }
           const imageURI = obj.metadata.image;
           const uriImage = imageURI.replace("ipfs://","https://nftstorage.link/ipfs/");
-          const uriMetadata = `https://ipfs.io/ipfs/${obj.uri}`;
+          const uriMetadata = obj.uri.replace("ipfs://","https://nftstorage.link/ipfs/");
           return(
-            <Card  height="medium" width="small" background="light-1">
-              <CardHeader pad="medium"><b>{obj.metadata.name}</b></CardHeader>
-              <CardBody pad="small"><Image alignSelf="center" src={uriImage} width="150px"/></CardBody>
-              <CardFooter pad={{horizontal: "small"}} background="light-2" align="center" alignContent="center">
-                <Anchor href={uriMetadata} target="_blank">Info</Anchor>
-                <Anchor href={`https://rinkeby.rarible.com/token/${props.nftScience.address}:${obj.id}`} target="_blank">Marketplace</Anchor>
-              </CardFooter>
-            </Card>
+            <Box pad="medium">
+              <Card  height="medium" width="small" background="light-1">
+                <CardHeader pad="medium"><b>{obj.metadata.name}</b></CardHeader>
+                <CardBody pad="small"><Image alignSelf="center" src={uriImage} width="150px"/></CardBody>
+                <CardFooter pad={{horizontal: "small"}} background="light-2" align="center" alignContent="center">
+                  <Anchor href={uriMetadata} target="_blank">Info</Anchor>
+                  <Anchor href={`https://rinkeby.rarible.com/token/${props.nftScience.address}:${obj.id}`} target="_blank">Marketplace</Anchor>
+                </CardFooter>
+              </Card>
+            </Box>
           )
         })
       }

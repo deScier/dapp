@@ -54,8 +54,12 @@ export default function App() {
           </Anchor> and{' '}
           <Anchor href="https://gitcoin.co/grants/7431/publish-science-scidao" target="_blank">
             DAOScience
+          </Anchor>. Check
+        </Paragraph>
+        <Paragraph>
+          <Anchor href="https://github.com/deScier/dapp" target="_blank">
+            Github
           </Anchor>
-
         </Paragraph>
       </Footer>
 

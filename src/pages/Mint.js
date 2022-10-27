@@ -73,6 +73,7 @@ export default function Mint() {
         const ownedNfts = await getNftsFrom(coinbase,netId);
         if (ownedNfts.data.accounts[0]?.ERC1155balances) {
           const erc1155Tokens = ownedNfts.data.accounts[0].ERC1155balances;
+          console.log(erc1155Tokens)
           const promises = erc1155Tokens.map(getMetadata);
           const newMyOwnedERC1155 = await Promise.all(promises)
           setMyNFts(newMyOwnedERC1155);
@@ -96,7 +97,7 @@ export default function Mint() {
           resolve({
             id: item.id,
             metadata: metadata,
-            uri: item.uri
+            uri: item.token.uri
           })
         } catch (err) {
           resolve({});
